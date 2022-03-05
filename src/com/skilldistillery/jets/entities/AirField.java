@@ -45,6 +45,15 @@ public class AirField {
 				}
 				else if(iPlanes[0].equals("CargoPlane")) {
 					CargoPlane c1 = new CargoPlane();
+					c1.setModel(iPlanes[1]);
+					c1.setSpeed(Double.parseDouble(iPlanes[2]));
+					c1.setRange(Integer.parseInt(iPlanes[3]));
+					c1.setPrice(Long.parseLong(iPlanes[4]));
+					jets.add(c1);
+					//Starting to Copy Paste More, use in README Lessons Learned
+				}else {
+					JetBase jb1 = new JetBase();
+					
 				}
 			}
 			br.close();
@@ -56,5 +65,7 @@ public class AirField {
 			return;
 		}
 	}
-
+	
+	
+	
 }
