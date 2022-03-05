@@ -51,8 +51,14 @@ public class AirField {
 					c1.setPrice(Long.parseLong(iPlanes[4]));
 					jets.add(c1);
 					//Starting to Copy Paste More, use in README Lessons Learned
-				}else {
+				}else{
 					JetBase jb1 = new JetBase();
+					jb1.setStyle(iPlanes[0]);
+					jb1.setModel(iPlanes[1]);
+					jb1.setSpeed(Double.parseDouble(iPlanes[2]));
+					jb1.setRange(Integer.parseInt(iPlanes[3]));
+					jb1.setPrice(Long.parseLong(iPlanes[4]));
+					jets.add(jb1);
 					
 				}
 			}
@@ -65,7 +71,7 @@ public class AirField {
 			return;
 		}
 	}
-	
+		
 	
 	
 }

@@ -1,13 +1,24 @@
 package com.skilldistillery.jets.app;
 
+import java.util.Scanner;
+
 import com.skilldistillery.jets.entities.Jet;
 
 public class JetsApplication {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-			Jet j1 = new Jet("Sesna", 125, 1000, 50000);
-		System.out.println();
-	}
+		Scanner kb = new Scanner(System.in);
+		System.out.println("\t MENU \t");
+		System.out.println("1. List Fleet");
+		System.out.println("2. Fly all Jets");
+		System.out.println("3. View Fastest Jet");
+		System.out.println("4. View Jet with Longest Range");
+		System.out.println("5. Load all Cargo Jets");
+		System.out.println("6. Dogfight!");
+		System.out.println("7. Add a Jet to Fleet");
+		System.out.println("8. Remove a Jet from Fleet");
+		System.out.println("9. -xxQUITxx-");
 
+	
+	}
 }
