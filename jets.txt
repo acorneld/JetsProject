@@ -1,1 +1,5 @@
-Passenger Jet, Cessna, 172,25, 250, 123.32
+FighterJet, BigBoomah, 400, 5_000, 100_000
+FighterJet, MediumBoomah, 500, 10_000, 50_000
+FighterJet, SmallBoomah, 1_000, 20_000, 30_000
+CargoPlane, CarryMuch, 200, 5_000, 50_000
+CargoPlane, CarryLittle, 500, 10_000, 25_000
