@@ -22,10 +22,12 @@ public class Jet {
 	
 	public void fly() {
 	double flightTime = this.range / this.speed;
-		System.out.println(flightTime + " Taking Off....sshhhhwoo");
+		System.out.println(this.getModel() + " can floor for " + flightTime + " Taking Off....sshhhhwoo");
 	}
 	
-	public double convertSpeedInMach() {
+	
+	
+	public double convertSpeedInMach(double speed) {
 		return speedInMach;
 		//Logic for speed in Mach conversion
 	}
@@ -70,6 +72,13 @@ public class Jet {
 		this.speedInMach = speedInMach;
 	}
 
+	@Override
+	public String toString() {
+		return "Jet [model=" + model + ", speed=" + speed + ", range=" + range + ", price=" + price + ", speedInMach="
+				+ speedInMach + "]";
+	}
+
+	
 
 
 

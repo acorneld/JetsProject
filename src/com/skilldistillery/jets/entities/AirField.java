@@ -8,7 +8,7 @@ public class AirField {
 public AirField() {
 	
 }
-	List<String> jets = new ArrayList<>();
+	List<Jet> jets = new ArrayList<>();
 	
 	 
 }
