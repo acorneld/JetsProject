@@ -9,14 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AirField {
-
+	
+	private List<Jet> fleet;
 	List<Jet> jets = new ArrayList<>();
 
 	public AirField() {
 		populateAirField();
-
 	}
-
+	
+	public AirField(List<Jet> fleet) {
+		super();
+		this.jets = fleet;
+	}
+	
 	public void populateAirField() {
 		File initialPopulate = new File("Jets.txt");
 		/*
@@ -42,16 +47,15 @@ public class AirField {
 					f1.setPrice(Long.parseLong(iPlanes[4]));
 					jets.add(f1);
 					// Troubleshoot test sysout
-				}
-				else if(iPlanes[0].equals("CargoPlane")) {
+				} else if (iPlanes[0].equals("CargoPlane")) {
 					CargoPlane c1 = new CargoPlane();
 					c1.setModel(iPlanes[1]);
 					c1.setSpeed(Double.parseDouble(iPlanes[2]));
 					c1.setRange(Integer.parseInt(iPlanes[3]));
 					c1.setPrice(Long.parseLong(iPlanes[4]));
 					jets.add(c1);
-					//Starting to Copy Paste More, use in README Lessons Learned
-				}else{
+					// Starting to Copy Paste More, use in README Lessons Learned
+				} else {
 					JetBase jb1 = new JetBase();
 					jb1.setStyle(iPlanes[0]);
 					jb1.setModel(iPlanes[1]);
@@ -59,7 +63,7 @@ public class AirField {
 					jb1.setRange(Integer.parseInt(iPlanes[3]));
 					jb1.setPrice(Long.parseLong(iPlanes[4]));
 					jets.add(jb1);
-					
+
 				}
 			}
 			br.close();
@@ -71,7 +75,35 @@ public class AirField {
 			return;
 		}
 	}
+	
+	
+	
+	public List<Jet> getFleet() {
+		return fleet;
+	}
+
+	public void setFleet(List<Jet> fleet) {
+		this.fleet = fleet;
+	}
+
+	public List<Jet> getJets() {
+		return jets;
+	}
+
+	public void setJets(List<Jet> jets) {
+		this.jets = jets;
+	}
+
+	public void listFleet() {
+		for(int i = 0; i < jets.size(); i++ ) {
+			System.out.println(i + 1 + " " + jets.get(i));
+		}
 		
-	
-	
+	}
+
+	@Override
+	public String toString() {
+		return "AirField [fleet=" + fleet + ", jets=" + jets + "]";
+	}
+
 }

@@ -2,11 +2,15 @@ package com.skilldistillery.jets.app;
 
 import java.util.Scanner;
 
+import com.skilldistillery.jets.entities.AirField;
 import com.skilldistillery.jets.entities.Jet;
 
 public class JetsApplication {
+	
+	
 
 	public static void main(String[] args) {
+		AirField af = new AirField();
 		Scanner kb = new Scanner(System.in);
 		System.out.println("\t MENU \t");
 		System.out.println("1. List Fleet");
@@ -18,7 +22,19 @@ public class JetsApplication {
 		System.out.println("7. Add a Jet to Fleet");
 		System.out.println("8. Remove a Jet from Fleet");
 		System.out.println("9. -xxQUITxx-");
+		int menuChoice = kb.nextInt();
 
-	
+		while (menuChoice != 9) {
+			
+			if(menuChoice == 1) {
+				
+				af.listFleet();//Reader/Writer DOES NOT like my use of "_"
+			
+			}
+		}
 	}
+	
 }
+				
+				
+				
