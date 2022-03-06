@@ -11,15 +11,15 @@ import java.util.Scanner;
 
 public class AirField {
 
-	private List<Jet> fleet;
-	List<Jet> jets = new ArrayList<>();
+	
+	private List<Jet> fleet = new ArrayList<>();
 
 	public AirField() {
 		populateAirField();
 	}
 
-	public AirField(List<Jet> fleet) {
-		this.jets = fleet;
+	public AirField(List<Jet> jets) {
+		this.fleet = jets;
 	}
 
 	public void populateAirField() {
@@ -45,7 +45,7 @@ public class AirField {
 					f1.setSpeed(Double.parseDouble(iPlanes[2]));
 					f1.setRange(Integer.parseInt(iPlanes[3]));
 					f1.setPrice(Long.parseLong(iPlanes[4]));
-					jets.add(f1);
+					fleet.add(f1);
 					// Troubleshoot test sysout
 				} else if (iPlanes[0].equals("CargoPlane")) {
 					CargoPlane c1 = new CargoPlane();
@@ -53,7 +53,7 @@ public class AirField {
 					c1.setSpeed(Double.parseDouble(iPlanes[2]));
 					c1.setRange(Integer.parseInt(iPlanes[3]));
 					c1.setPrice(Long.parseLong(iPlanes[4]));
-					jets.add(c1);
+					fleet.add(c1);
 					// Starting to Copy Paste More, use in README Lessons Learned
 				} else {
 					JetBase jb1 = new JetBase();
@@ -62,7 +62,7 @@ public class AirField {
 					jb1.setSpeed(Double.parseDouble(iPlanes[2]));
 					jb1.setRange(Integer.parseInt(iPlanes[3]));
 					jb1.setPrice(Long.parseLong(iPlanes[4]));
-					jets.add(jb1);
+					fleet.add(jb1);
 
 				}
 			}
@@ -76,6 +76,10 @@ public class AirField {
 		}
 	}
 
+	
+
+	
+
 	public List<Jet> getFleet() {
 		return fleet;
 	}
@@ -84,40 +88,32 @@ public class AirField {
 		this.fleet = fleet;
 	}
 
-	public List<Jet> getJets() {
-		return jets;
-	}
-
-	public void setJets(List<Jet> jets) {
-		this.jets = jets;
-	}
-
 	public void listFleet() {
-		for (int i = 0; i < jets.size(); i++) {
-			System.out.println(i + 1 + " " + jets.get(i));
+		for (int i = 0; i < fleet.size(); i++) {
+			System.out.println(i + 1 + " " + fleet.get(i));
 		}
 	}
-
+	
 	public void flyAll() {
-		for (Jet jet : jets) {
+		for(Jet jet : fleet) {
 			jet.fly();
 		}
 	}
-
+	
 	public Jet viewFastestJet() {
-		Jet fastestJet = jets.get(0);
-		for (Jet jet : jets) {
-			if (jet.getSpeed() > fastestJet.getSpeed()) {
+		Jet fastestJet = fleet.get(0);
+		for(Jet jet : fleet) {
+			if(jet.getSpeed() > fastestJet.getSpeed()) {
 				fastestJet = jet;
 			}
 		}
 		System.out.println(fastestJet);
 		return fastestJet;
 	}
-
+	
 	public Jet viewLongestRange() {
-		Jet longestRange = jets.get(0);
-		for (Jet jet : jets) {
+		Jet longestRange = fleet.get(0);
+		for ( Jet jet : fleet) {
 			if (jet.getRange() > longestRange.getRange()) {
 				longestRange = jet;
 			}
@@ -125,30 +121,29 @@ public class AirField {
 		System.out.println(longestRange);
 		return longestRange;
 	}
-
 	public void loadAllCargo() {
-		for (Jet jet : jets) {
+		for (Jet jet : fleet) {
 			if (jet instanceof CargoPlane) {
 				((CargoPlane) jet).load();
 				System.out.println("Cargo Plane Loaded");
 			}
 		}
 	}
-
+	
 	public void dogFight() {
-		for (Jet jet : jets) {
+		for (Jet jet : fleet) {
 			if (jet instanceof FighterJet) {
 				((FighterJet) jet).fight();
 			}
 		}
 	}
-
+	
 	public void addUserJet() {
 		Scanner kb = new Scanner(System.in);
 
 		System.out.println("You would like to add a Jet.");
-		System.out.println("Please Enter FighterJet, CargoPlane, or the new Style of your model");
-		System.out.println("New Style Example: \"Sesna\" ");
+		System.out.println("Please Enter the Jet's style FighterJet, CargoPlane, or JetBase ");
+		
 		String style = kb.nextLine();
 		System.out.println("What is the Jet's Model?");
 		String model = kb.nextLine();
@@ -159,33 +154,22 @@ public class AirField {
 		System.out.println("What is the Jet's Price?");
 		long price = kb.nextLong();
 		// Don't need to String and then parseback
-		Jet userJet;
+		Jet userJet = null;
 		if (style.equalsIgnoreCase("FighterJet")) {
 			userJet = new FighterJet(model, speed, range, price);
 		} else if (style.equalsIgnoreCase("CargoPlane")) {
 			userJet = new CargoPlane(model, speed, range, price);
-		} else {
-			userJet = new JetBase(style, model, speed, range, price);
+		} else if(style.equalsIgnoreCase("JetBase")) {
+			userJet = new JetBase(model, speed, range, price);
 		}
-		jets.add(userJet);
-		kb.close();
-	}
-
-	// TODO First stretch to try, use same lines 162-168
-	public void removeJet() {
-		int removeChoice;
-		Scanner kb = new Scanner(System.in);
-		System.out.println("You would like to remove a Jet.");
-		System.out.println("Please enter the number of the Jet you would like to remove.");
-		listFleet();
-		removeChoice = kb.nextInt();
-		fleet.remove(removeChoice);
-		kb.close();
-	}
+		fleet.add(userJet);
 		
+	}
+	
 	@Override
 	public String toString() {
-		return "AirField [fleet=" + fleet + ", jets=" + jets + "]";
+		return "AirField [fleet=" + fleet + "]";
 	}
+
 
 }
