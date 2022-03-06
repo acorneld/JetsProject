@@ -11,7 +11,6 @@ import java.util.Scanner;
 
 public class AirField {
 
-	
 	private List<Jet> fleet = new ArrayList<>();
 
 	public AirField() {
@@ -72,10 +71,6 @@ public class AirField {
 		}
 	}
 
-	
-
-	
-
 	public List<Jet> getFleet() {
 		return fleet;
 	}
@@ -89,29 +84,27 @@ public class AirField {
 			System.out.println(i + 1 + " " + fleet.get(i));
 		}
 	}
-	
+
 	public void flyAll() {
-		for(Jet jet : fleet) {
-			
-			jet.fly();
-			
+		for (Jet jet : fleet) {
+				jet.fly();
 		}
 	}
-	
+
 	public Jet viewFastestJet() {
 		Jet fastestJet = fleet.get(0);
-		for(Jet jet : fleet) {
-			if(jet.getSpeed() > fastestJet.getSpeed()) {
+		for (Jet jet : fleet) {
+			if (jet.getSpeed() > fastestJet.getSpeed()) {
 				fastestJet = jet;
 			}
 		}
 		System.out.println(fastestJet);
 		return fastestJet;
 	}
-	
+
 	public Jet viewLongestRange() {
 		Jet longestRange = fleet.get(0);
-		for ( Jet jet : fleet) {
+		for (Jet jet : fleet) {
 			if (jet.getRange() > longestRange.getRange()) {
 				longestRange = jet;
 			}
@@ -119,6 +112,7 @@ public class AirField {
 		System.out.println(longestRange);
 		return longestRange;
 	}
+
 	public void loadAllCargo() {
 		for (Jet jet : fleet) {
 			if (jet instanceof CargoPlane) {
@@ -127,7 +121,7 @@ public class AirField {
 			}
 		}
 	}
-	
+
 	public void dogFight() {
 		for (Jet jet : fleet) {
 			if (jet instanceof FighterJet) {
@@ -135,13 +129,13 @@ public class AirField {
 			}
 		}
 	}
-	
+
 	public void addUserJet() {
 		Scanner kb = new Scanner(System.in);
 
 		System.out.println("You would like to add a Jet.");
 		System.out.println("Please Enter the Jet's style FighterJet, CargoPlane, or JetBase ");
-		
+
 		String style = kb.nextLine();
 		System.out.println("What is the Jet's Model?");
 		String model = kb.nextLine();
@@ -157,27 +151,25 @@ public class AirField {
 			userJet = new FighterJet(model, speed, range, price);
 		} else if (style.equalsIgnoreCase("CargoPlane")) {
 			userJet = new CargoPlane(model, speed, range, price);
-		} else if(style.equalsIgnoreCase("JetBase")) {
+		} else if (style.equalsIgnoreCase("JetBase")) {
 			userJet = new JetBase(style, model, speed, range, price);
 		}
 		fleet.add(userJet);
-		
+
 	}
-	
+
 	public void removeUserJet() {
 		Scanner kb = new Scanner(System.in);
 		System.out.println("You would like to remove a Jet.");
 		System.out.println("Enter the number of the Jet you would like to remove.");
 		int removeChoice = kb.nextInt();
 		fleet.remove(removeChoice - 1);
-		
+
 	}
 
 	@Override
 	public String toString() {
 		return "AirField [fleet=" + fleet + "]";
 	}
-
-
 
 }

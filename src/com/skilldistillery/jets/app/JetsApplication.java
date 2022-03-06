@@ -12,9 +12,9 @@ public class JetsApplication {
 		JetsApplication jetsApp = new JetsApplication();
 		jetsApp.menu();
 	}
-	
+
 	public void menu() {
-	
+
 		Scanner kb = new Scanner(System.in);
 		int menuChoice = 0;
 		while (menuChoice != 9) {
@@ -52,9 +52,9 @@ public class JetsApplication {
 			} else if (menuChoice == 9) {
 				continue;
 			}
-		
+
 		}
 
 	}
-	
+
 }
