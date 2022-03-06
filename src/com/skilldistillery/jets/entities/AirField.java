@@ -169,7 +169,7 @@ public class AirField {
 		System.out.println("You would like to remove a Jet.");
 		System.out.println("Enter the number of the Jet you would like to remove.");
 		int removeChoice = kb.nextInt();
-		fleet.remove(removeChoice);
+		fleet.remove(removeChoice - 1);
 		
 	}
 
