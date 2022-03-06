@@ -23,7 +23,8 @@ public class Jet {
 	public void fly() {
 	double flightTime = this.range / this.speed;
 	// May need this.flightTime = flightTime and S&G
-		System.out.println(this.getModel() + " can fly for " + flightTime + " Taking Off....sshhhhwoo");
+		System.out.println(this.getModel() + " can fly for " + flightTime + " hours2" + " at a speed of " + this.getSpeed() + 
+	"MPH" + " for " + this.getRange() + " miles" + " if you can afford " + price + " Then you'll be taking Off....sshhhhwooooo");
 	}
 	
 	

@@ -92,7 +92,9 @@ public class AirField {
 	
 	public void flyAll() {
 		for(Jet jet : fleet) {
+			
 			jet.fly();
+			
 		}
 	}
 	
