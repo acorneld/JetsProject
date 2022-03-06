@@ -166,10 +166,20 @@ public class AirField {
 		
 	}
 	
+	public void removeUserJet() {
+		Scanner kb = new Scanner(System.in);
+		System.out.println("You would like to remove a Jet.");
+		System.out.println("Enter the number of the Jet you would like to remove.");
+		int removeChoice = kb.nextInt();
+		fleet.remove(removeChoice);
+		
+	}
+
 	@Override
 	public String toString() {
 		return "AirField [fleet=" + fleet + "]";
 	}
+
 
 
 }

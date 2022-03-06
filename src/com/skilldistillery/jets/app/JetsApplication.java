@@ -46,7 +46,7 @@ public class JetsApplication {
 				af.addUserJet();
 			}
 			else if (menuChoice == 8) {
-				
+				af.removeUserJet();
 			}
 		}
 
