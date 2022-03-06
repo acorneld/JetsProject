@@ -43,12 +43,14 @@ public class JetsApplication {
 				af.dogFight();
 			} else if (menuChoice == 7) {
 				af.addUserJet();
-			}
-			else if (menuChoice == 8) {
-				
+			} else if (menuChoice == 8) {
+				af.removeJet();         // java.util.ConcurrentModificationException
+			} else if (menuChoice == 9) {
+				continue; // Use Break here if issues
+			} else {
+				System.out.println("Please enter a valid selection 1-9.");
+				continue;
 			}
 		}
-
 	}
-
 }

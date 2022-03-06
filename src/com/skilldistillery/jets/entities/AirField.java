@@ -168,10 +168,21 @@ public class AirField {
 			userJet = new JetBase(style, model, speed, range, price);
 		}
 		jets.add(userJet);
+		kb.close();
+	}
+
+	// TODO First stretch to try, use same lines 162-168
+	public void removeJet() {
+		int removeChoice;
+		Scanner kb = new Scanner(System.in);
+		System.out.println("You would like to remove a Jet.");
+		System.out.println("Please enter the number of the Jet you would like to remove.");
+		listFleet();
+		removeChoice = kb.nextInt();
+		fleet.remove(removeChoice);
+		kb.close();
 	}
 		
-		
-	
 	@Override
 	public String toString() {
 		return "AirField [fleet=" + fleet + ", jets=" + jets + "]";
