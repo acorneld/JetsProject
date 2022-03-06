@@ -9,19 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AirField {
-	
+
 	private List<Jet> fleet;
 	List<Jet> jets = new ArrayList<>();
 
 	public AirField() {
 		populateAirField();
 	}
-	
+
 	public AirField(List<Jet> fleet) {
 		super();
 		this.jets = fleet;
 	}
-	
+
 	public void populateAirField() {
 		File initialPopulate = new File("Jets.txt");
 		/*
@@ -75,9 +75,7 @@ public class AirField {
 			return;
 		}
 	}
-	
-	
-	
+
 	public List<Jet> getFleet() {
 		return fleet;
 	}
@@ -95,12 +93,39 @@ public class AirField {
 	}
 
 	public void listFleet() {
-		for(int i = 0; i < jets.size(); i++ ) {
+		for (int i = 0; i < jets.size(); i++) {
 			System.out.println(i + 1 + " " + jets.get(i));
 		}
-		
 	}
-
+	
+	public void flyAll() {
+		for(Jet jet : jets) {
+			jet.fly();
+		}
+	}
+	
+	public Jet viewFastestJet() {
+		Jet fastestJet = jets.get(0);
+		for(Jet jet : jets) {
+			if(jet.getSpeed() > fastestJet.getSpeed()) {
+				fastestJet = jet;
+			}
+		}
+		System.out.println(fastestJet);
+		return fastestJet;
+	}
+	
+	public Jet viewLongestRange() {
+		Jet longestRange = jets.get(0);
+		for ( Jet jet : jets) {
+			if (jet.getRange() > longestRange.getRange()) {
+				longestRange = jet;
+			}
+		}
+		System.out.println(longestRange);
+		return longestRange;
+	}
+	
 	@Override
 	public String toString() {
 		return "AirField [fleet=" + fleet + ", jets=" + jets + "]";

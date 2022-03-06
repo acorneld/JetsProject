@@ -29,8 +29,18 @@ public class JetsApplication {
 			if(menuChoice == 1) {
 				
 				af.listFleet();//Reader/Writer DOES NOT like my use of "_"
-			
+			// TODO stop repeating from occuring.
 			}
+			else if (menuChoice == 2) {
+				af.flyAll();
+			}
+			else if (menuChoice == 3) {
+				af.viewFastestJet();
+			}
+			else if (menuChoice == 4) {
+				
+			}
+
 		}
 	}
 	
