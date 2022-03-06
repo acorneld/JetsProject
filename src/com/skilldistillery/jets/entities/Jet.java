@@ -30,6 +30,7 @@ public class Jet {
 	
 	
 	public double convertSpeedInMach(double speed) {
+		speedInMach = speed * 0.001303;
 		return speedInMach;
 		//Logic for speed in Mach conversion
 	}
