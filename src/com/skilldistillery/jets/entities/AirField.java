@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class AirField {
 
@@ -18,7 +19,6 @@ public class AirField {
 	}
 
 	public AirField(List<Jet> fleet) {
-		super();
 		this.jets = fleet;
 	}
 
@@ -97,27 +97,27 @@ public class AirField {
 			System.out.println(i + 1 + " " + jets.get(i));
 		}
 	}
-	
+
 	public void flyAll() {
-		for(Jet jet : jets) {
+		for (Jet jet : jets) {
 			jet.fly();
 		}
 	}
-	
+
 	public Jet viewFastestJet() {
 		Jet fastestJet = jets.get(0);
-		for(Jet jet : jets) {
-			if(jet.getSpeed() > fastestJet.getSpeed()) {
+		for (Jet jet : jets) {
+			if (jet.getSpeed() > fastestJet.getSpeed()) {
 				fastestJet = jet;
 			}
 		}
 		System.out.println(fastestJet);
 		return fastestJet;
 	}
-	
+
 	public Jet viewLongestRange() {
 		Jet longestRange = jets.get(0);
-		for ( Jet jet : jets) {
+		for (Jet jet : jets) {
 			if (jet.getRange() > longestRange.getRange()) {
 				longestRange = jet;
 			}
@@ -125,6 +125,52 @@ public class AirField {
 		System.out.println(longestRange);
 		return longestRange;
 	}
+
+	public void loadAllCargo() {
+		for (Jet jet : jets) {
+			if (jet instanceof CargoPlane) {
+				((CargoPlane) jet).load();
+				System.out.println("Cargo Plane Loaded");
+			}
+		}
+	}
+
+	public void dogFight() {
+		for (Jet jet : jets) {
+			if (jet instanceof FighterJet) {
+				((FighterJet) jet).fight();
+			}
+		}
+	}
+
+	public void addUserJet() {
+		Scanner kb = new Scanner(System.in);
+
+		System.out.println("You would like to add a Jet.");
+		System.out.println("Please Enter FighterJet, CargoPlane, or the new Style of your model");
+		System.out.println("New Style Example: \"Sesna\" ");
+		String style = kb.nextLine();
+		System.out.println("What is the Jet's Model?");
+		String model = kb.nextLine();
+		System.out.println("What is the Jet's Speed?");
+		double speed = kb.nextDouble();
+		System.out.println("What is the Jet's Range?");
+		int range = kb.nextInt();
+		System.out.println("What is the Jet's Price?");
+		long price = kb.nextLong();
+		// Don't need to String and then parseback
+		Jet userJet;
+		if (style.equalsIgnoreCase("FighterJet")) {
+			userJet = new FighterJet(model, speed, range, price);
+		} else if (style.equalsIgnoreCase("CargoPlane")) {
+			userJet = new CargoPlane(model, speed, range, price);
+		} else {
+			userJet = new JetBase(style, model, speed, range, price);
+		}
+		jets.add(userJet);
+	}
+		
+		
 	
 	@Override
 	public String toString() {
