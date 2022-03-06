@@ -158,7 +158,7 @@ public class AirField {
 		} else if (style.equalsIgnoreCase("CargoPlane")) {
 			userJet = new CargoPlane(model, speed, range, price);
 		} else if(style.equalsIgnoreCase("JetBase")) {
-			userJet = new JetBase(model, speed, range, price);
+			userJet = new JetBase(style, model, speed, range, price);
 		}
 		fleet.add(userJet);
 		

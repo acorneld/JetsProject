@@ -7,9 +7,9 @@ public class JetBase extends Jet {
 		//IDE added, why different than Cargo/Fighter
 	}
 	
-	public JetBase(String model, double speed, int range, long price) {
+	public JetBase(String style, String model, double speed, int range, long price) {
 		super(model, speed, range, price);
-		
+		setStyle(style);
 	}
 
 

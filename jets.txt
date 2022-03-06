@@ -2,4 +2,4 @@ FighterJet, BigBoomah, 400, 5000, 100000
 FighterJet, MediumBoomah, 500, 10000, 50000
 FighterJet, SmallBoomah, 1000, 20000, 30000
 CargoPlane, CarryMuch, 200, 5000, 50000
-CargoPlane, CarryLittle, 500, 10000, 25000
+JetBase, CustomCruiser, 500, 10000, 25000

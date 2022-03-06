@@ -68,17 +68,12 @@ public class Jet {
 		this.price = price;
 	}
 	
-	public double getSpeedInMach() {
-		return speedInMach;
-	}
-	public void setSpeedInMach(double speedInMach) {
-		this.speedInMach = speedInMach;
-	}
+	
 
 	@Override
 	public String toString() {
-		return "Jet [model=" + model + ", speed=" + speed + ", range=" + range + ", price=" + price + ", speedInMach="
-				+ speedInMach + "]";
+		return " Model: " + model + ", Speed: " + speed + "MPH" + ", Range: " + range + ", Price: " + price + ", Speed in Mach: "
+				+ convertSpeedInMach(speed) + "]";
 	}
 
 	
