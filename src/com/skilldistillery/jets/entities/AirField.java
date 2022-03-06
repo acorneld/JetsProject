@@ -18,10 +18,6 @@ public class AirField {
 		populateAirField();
 	}
 
-	public AirField(List<Jet> jets) {
-		this.fleet = jets;
-	}
-
 	public void populateAirField() {
 		File initialPopulate = new File("Jets.txt");
 		/*

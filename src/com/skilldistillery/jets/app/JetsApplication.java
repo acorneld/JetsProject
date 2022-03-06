@@ -3,15 +3,18 @@ package com.skilldistillery.jets.app;
 import java.util.Scanner;
 
 import com.skilldistillery.jets.entities.AirField;
-import com.skilldistillery.jets.entities.Jet;
-import com.skilldistillery.jets.entities.FighterJet;
-import com.skilldistillery.jets.entities.CargoPlane;
-import com.skilldistillery.jets.entities.JetBase;
 
 public class JetsApplication {
 
+	AirField af = new AirField();
+
 	public static void main(String[] args) {
-		AirField af = new AirField();
+		JetsApplication jetsApp = new JetsApplication();
+		jetsApp.menu();
+	}
+	
+	public void menu() {
+	
 		Scanner kb = new Scanner(System.in);
 		int menuChoice = 0;
 		while (menuChoice != 9) {
@@ -44,12 +47,14 @@ public class JetsApplication {
 				af.dogFight();
 			} else if (menuChoice == 7) {
 				af.addUserJet();
-			}
-			else if (menuChoice == 8) {
+			} else if (menuChoice == 8) {
 				af.removeUserJet();
+			} else if (menuChoice == 9) {
+				continue;
 			}
+		
 		}
 
 	}
-
+	
 }
