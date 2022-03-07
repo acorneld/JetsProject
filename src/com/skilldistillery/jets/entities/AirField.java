@@ -134,7 +134,7 @@ public class AirField {
 		Scanner kb = new Scanner(System.in);
 
 		System.out.println("You would like to add a Jet.");
-		System.out.println("Please Enter the Jet's style FighterJet, CargoPlane, or JetBase ");
+		System.out.println("Please Enter the Jet's style FighterJet, CargoPlane, or JetBase(for custom)");
 
 		String style = kb.nextLine();
 		System.out.println("What is the Jet's Model?");
