@@ -162,6 +162,7 @@ public class AirField {
 		Scanner kb = new Scanner(System.in);
 		System.out.println("You would like to remove a Jet.");
 		System.out.println("Enter the number of the Jet you would like to remove.");
+		listFleet();
 		int removeChoice = kb.nextInt();
 		fleet.remove(removeChoice - 1);
 
