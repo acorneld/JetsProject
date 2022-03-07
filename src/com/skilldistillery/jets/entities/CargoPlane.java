@@ -11,8 +11,8 @@ public class CargoPlane extends Jet implements LoadCargo {
 	}
 
 	public void load() {
-		System.out.println("Cargo onboard, good to go");
-		System.out.println();
+		System.out.println(getModel() + "Cargo onboard, good to go");
+		
 	}
 
 }
