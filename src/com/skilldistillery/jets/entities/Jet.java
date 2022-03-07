@@ -76,6 +76,6 @@ public class Jet {
 	@Override
 	public String toString() {
 		return " Model: " + getModel() + ", Speed: " + getSpeed() + "MPH" + ", Range: " + getRange() + ", Price: "
-				+ getPrice() + ", Speed in Mach: " + getSpeedInMach() + "]";
+				+ getPrice() + ", Speed in Mach: " + convertSpeedInMach(speed) + "]";
 	}
 }
